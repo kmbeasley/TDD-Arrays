@@ -10,7 +10,7 @@
  * getFirst([true,false,true]); // true
  */
 export function getFirst(array) {
-  // TODO
+  return array[0];
 }
 
 /**
@@ -25,7 +25,7 @@ export function getFirst(array) {
  * getLast([true,false,true]); // true
  */
 export function getLast(array) {
-  // TODO
+  return array[array.length - 1];
 }
 
 /**
@@ -42,8 +42,16 @@ export function getLast(array) {
  * getFirstLast([42]); // [42]
  */
 export function getFirstLast(array) {
-  // TODO
+  // So this is stating if the whole length of the array is 0 then return nothing..?
+  if (array.length === 0) return [];
+  //then this is saying if the whole array is 1, return the array...?
+  if (array.length === 1) return array;
+  //if none of those, then you will return the first and last array.
+  return [getFirst(array), getLast(array)];
 }
+if (array.length <= 1) return array;
+return [getFirst(array), getLast(array)];
+return [array[0], array.at(-1)];
 
 /**
  * @param {string} str1 - the first string
@@ -59,7 +67,8 @@ export function getFirstLast(array) {
  * sharesFirstLetter("cat", "dog"); // false
  */
 export function sharesFirstLetter(str1, str2) {
-  // TODO
+  if (str1 === "" || str2 === "") return false;
+  return str1[0] === str2[0];
 }
 
 /**
@@ -74,8 +83,12 @@ export function sharesFirstLetter(str1, str2) {
  * quintuple([]); // []
  */
 export function quintuple(numbers) {
-  // TODO
+  const result = [];
+  for (const num of numbers) {
+    result.push(num * 5);
+  }
 }
+return result;
 
 /**
  * There is a general rule for making nouns plural in English:
@@ -95,7 +108,14 @@ export function quintuple(numbers) {
  * pluralize([]); // []
  */
 export function pluralize(words) {
-  // TODO
+  const result = [];
+  for (const word of words) {
+    if (word.endsWith("s")) {
+      result.push(word + "es");
+    } else {
+      result.push(word + "s");
+    }
+  }
 }
 
 /**
@@ -112,7 +132,13 @@ export function pluralize(words) {
  * countAttendance([]); // 0
  */
 export function countAttendance(attendance) {
-  // TODO
+  let result = 0;
+  for (const student of attendance) {
+    if (student === true) {
+      result += 1;
+    }
+    return result;
+  }
 }
 
 /**
@@ -128,7 +154,12 @@ export function countAttendance(attendance) {
  * getLongestWord(["a", "ab", "abc"]); // "abc"
  */
 export function getLongestWord(sentence) {
-  // TODO
+  let result = "";
+  for (const word of sentence) {
+    if (word.length > result.length) {
+      result = word;
+    }
+  }
 }
 
 /**
@@ -145,7 +176,12 @@ export function getLongestWord(sentence) {
  * findSong([], "Midnight Drive"); // -1
  */
 export function findSong(playlist, song) {
-  // TODO
+  for (let i = 0; i < playlist.length; i++) {
+    if (playlist[i] === song) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -162,5 +198,9 @@ export function findSong(playlist, song) {
  * findSpy([["tree","lamp"],["pigeon","guard"]]); // null
  */
 export function findSpy(map) {
-  // TODO
+  for (let row = 0; row < map.length; row++) {
+    for (let col = 0; col < map[row].length; col++) {
+      return [row, cal];
+    }
+  }
 }
